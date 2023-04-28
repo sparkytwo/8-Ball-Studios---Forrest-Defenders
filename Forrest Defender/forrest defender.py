@@ -32,12 +32,13 @@ mana_bar = GameObject('Images/Mana.png', (0, 0), (500, 153))
 tree = GameObject('Images/tree.png', (cam_x - 75, cam_y - 100), (150, 200))
 grass = GameObject('Images/grass.png', (cam_x - 200, cam_y - 200), (400, 400))
 dirt = GameObject('Images/dirt.png', (0, 0), (1334, 750))
+menu_panel = GameObject('Images/menu_panel.png', (0, 0), (1334, 750))
 
 # Initial Image
 menu_img = pygame.image.load('Images/Menu.png')
-
+menu_p_image = pygame.image.load('Images/PressedMenu.png')
 # Initialise Button
-menu = Button(1150, 0, menu_img, 1)
+menu = Button(1150, 0, menu_img, menu_p_image, 1)
 
 # Initialise Text
 mana = font.render(str(mana_int), True, WHITE)
@@ -50,8 +51,11 @@ def update():
     global mana
     mana_int += mana_per_second * dt
     mana = font.render(str(int(mana_int)), True, WHITE)
-    if menu.click():
-        print("t")
+    if menu.clicked:
+        menu.c_img = menu.p_image
+    else:
+        menu.c_img = menu.d_image
+
     pygame.display.flip()
 
 
@@ -64,11 +68,18 @@ def render():
         screen.blit(mana_bar.image, mana_bar.rect)
         screen.blit(mana, (30, 25))
         screen.blit(mana_incr, (70, 100))
-        screen.blit(menu.image, menu.rect)
+        screen.blit(menu.c_img, menu.rect)
+        if menu_panel.visibility:
+            screen.blit(menu_panel.image, menu_panel.rect)
 
 # Input Function
 def inputs():
-    pass
+    if menu.click():
+        if menu_panel.visibility:
+            menu_panel.visibility = False
+        elif not menu_panel.visibility:
+            menu_panel.visibility = True
+
 
 
 running = True
