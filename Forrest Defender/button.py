@@ -10,7 +10,7 @@ class Button():
         height = image.get_height() #gets the height of image
         self.d_image = pygame.transform.scale(image, (int(width * scale), int(height * scale))) #assigns image
         self.p_image = pygame.transform.scale(pressed_image, (int(width * scale), int(height * scale)))
-        self.c_img = None
+        self.c_img = self.d_image
         self.rect = self.p_image.get_rect() #creates rectangle for image
         self.rect.topleft = (x, y) #sets image location
         self.clicked = False #starts not clicked
@@ -25,10 +25,13 @@ class Button():
         if self.rect.collidepoint(pos):
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False: #0 is the left mouse button being clicked
                 self.clicked = True
+                self.c_img = self.p_image
             if pygame.mouse.get_pressed()[0] == 0 and self.clicked: #if button let go, reset
                 self.clicked = False
                 self.action = True
+                self.c_img = self.d_image
 
         return self.action
+
 
 

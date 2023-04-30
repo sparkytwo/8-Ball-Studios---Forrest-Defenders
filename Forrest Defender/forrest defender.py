@@ -38,25 +38,43 @@ class Game(object):
         self.mana_drop_y = 300
         self.mana_droplet = GameObject('Images/manadrop.png', (600, 300), (17, 20))
 
-        # Initial Image
+        # Initial Menu Images
         self.menu_img = pygame.image.load('Images/Menu.png')
         self.menu_p_image = pygame.image.load('Images/PressedMenu.png')
-        self.left_arrow_img = pygame.image.load('Images/Left Arrow.png')
-        self.left_arrow_p_img = pygame.image.load('Images/Left Arrow Pressed.png')
-        self.right_arrow_img = pygame.image.load('Images/Right Arrow.png')
-        self.right_arrow_p_img = pygame.image.load('Images/Right Arrow Pressed.png')
+        self.upgrade_button_img = pygame.image.load("Images/Upgrade Button.png")
+        self.upgrade_button_p_img = pygame.image.load("Images/Upgrade Button Pressed.png")
 
-        # Initialise Button
+
+
+        # Menu Initialise Button
         self.menu = Button(self.screen_width - self.menu_img.get_width(), self.screen_height * 0.4, self.menu_img, self.menu_p_image, 1)
-        self.left_arrow = Button(20, 400, self.left_arrow_img, self.left_arrow_p_img, 1)
-        self.right_arrow = Button(1230, 400, self.right_arrow_img, self.right_arrow_p_img, 1)
+        self.upgrade_button_1 = Button(980, 220, self.upgrade_button_img, self.upgrade_button_p_img, 1)
+        self.upgrade_button_2 = Button(980, 385, self.upgrade_button_img, self.upgrade_button_p_img, 1)
+        self.upgrade_button_3 = Button(980, 550, self.upgrade_button_img, self.upgrade_button_p_img, 1)
+        self.upgrade_button_4 = Button(980, 715, self.upgrade_button_img, self.upgrade_button_p_img, 1)
+        self.upgrade_button_5 = Button(980, 875, self.upgrade_button_img, self.upgrade_button_p_img, 1)
+
+
+        # Initialise Upgrade Cost
+        self.upgrade_1_cost = 5
+        self.upgrade_2_cost = 30
+        self.upgrade_3_cost = 75
+        self.upgrade_4_cost = 500
+        self.upgrade_5_cost = 2000
+
+        # Initialise MPS Values
+        self.upgrade_1_mps = 1
+        self.upgrade_2_mps = 5
+        self.upgrade_3_mps = 15
+        self.upgrade_4_mps = 100
+        self.upgrade_5_mps = 500
+
 
         # Initialise Text
         self.mana = self.font.render(self.human_format(int(self.mana_int)), True, WHITE)
         self.mana_rect = pygame.Rect(0, 0, self.mana.get_width(), self.mana.get_height())
         self.mana_bar_droplet = GameObject('Images/manadrop bar.png', (
         self.mana_bar.rect.width * 0.5 - self.mana_rect.width * 0.5 - self.mana_droplet.rect.width, 300), (34, 40))
-
         self.mana_incr = self.font.render(str(self.mana_per_second) + " m/s", True, WHITE)
         self.mana_incr_rect = pygame.Rect(0, 0, self.mana_incr.get_width(), self.mana_incr.get_height())
         self.mana_incr_drop = self.font_small.render(str(self.mana_per_second), True, WHITE)
@@ -69,19 +87,58 @@ class Game(object):
             self.mana = self.font.render(self.human_format(int(self.mana_int)), True, WHITE)
             self.mana_rect = pygame.Rect(0, 0, self.mana.get_width(), self.mana.get_height())
 
-            if self.menu_panel.visibility == True:
+            if self.menu_panel.visibility:
                 if self.menu_panel.rect.x > self.screen_width * 0.2:
                     self.menu_panel.rect.x -= 2000 * self.dt
+                    self.upgrade_button_1.rect.x -= 2000 * self.dt
+                    self.upgrade_button_2.rect.x -= 2000 * self.dt
+                    self.upgrade_button_3.rect.x -= 2000 * self.dt
+                    self.upgrade_button_4.rect.x -= 2000 * self.dt
+                    self.upgrade_button_5.rect.x -= 2000 * self.dt
                     self.menu.rect.x = self.menu_panel.rect.x - self.menu.rect.width
-            if self.menu_panel.visibility == False:
+            if not self.menu_panel.visibility:
                 if self.menu_panel.rect.x < self.screen_width:
                     self.menu_panel.rect.x += 2000 * self.dt
+                    self.upgrade_button_1.rect.x += 2000 * self.dt
+                    self.upgrade_button_2.rect.x += 2000 * self.dt
+                    self.upgrade_button_3.rect.x += 2000 * self.dt
+                    self.upgrade_button_4.rect.x += 2000 * self.dt
+                    self.upgrade_button_5.rect.x += 2000 * self.dt
                     self.menu.rect.x = self.menu_panel.rect.x - self.menu.rect.width
             # Checks Menu
-            if self.menu.clicked:
-                self.menu.c_img = self.menu.p_image
-            else:
-                self.menu.c_img = self.menu.d_image
+            if self.menu.click():
+                if self.menu_panel.visibility:
+                    self.menu_panel.visibility = False
+                elif not self.menu_panel.visibility:
+                    self.menu_panel.visibility =True
+
+
+            if self.upgrade_button_1.click() and self.mana_int > self.upgrade_1_cost:
+                self.mana_int -= self.upgrade_1_cost
+                self.upgrade_1_cost += self.upgrade_1_cost * 2
+                self.upgrade_1_mps += 1
+                self.mana_per_second += self.upgrade_1_mps
+            if self.upgrade_button_2.click() and self.mana_int > self.upgrade_2_cost:
+                self.mana_int -= self.upgrade_2_cost
+                self.upgrade_2_cost += self.upgrade_2_cost * 2
+                self.upgrade_2_mps += 5
+                self.mana_per_second += self.upgrade_1_mps
+            if self.upgrade_button_3.click() and self.mana_int > self.upgrade_3_cost:
+                self.mana_int -= self.upgrade_3_cost
+                self.upgrade_3_cost += self.upgrade_3_cost * 2
+                self.upgrade_3_mps += 15
+                self.mana_per_second += self.upgrade_1_mps
+            if self.upgrade_button_4.click() and self.mana_int > self.upgrade_4_cost:
+                self.mana_int -= self.upgrade_4_cost
+                self.upgrade_4_cost += self.upgrade_4_cost * 2
+                self.upgrade_4_mps += 100
+                self.mana_per_second += self.upgrade_1_mps
+            if self.upgrade_button_5.click() and self.mana_int > self.upgrade_5_cost:
+                self.mana_int -= self.upgrade_5_cost
+                self.upgrade_5_cost += self.upgrade_5_cost * 2
+                self.upgrade_5_mps += 500
+                self.mana_per_second += self.upgrade_1_mps
+            self.mana_incr = self.font.render(str(self.mana_per_second) + " m/s", True, WHITE)
 
 
 
@@ -110,6 +167,11 @@ class Game(object):
             self.screen.blit(self.mana_incr, (self.mana_bar.rect.width * 0.5 - self.mana_incr_rect.width * 0.5, 110))
             self.screen.blit(self.menu.c_img, self.menu.rect)
             self.screen.blit(self.menu_panel.image, self.menu_panel.rect)
+            self.screen.blit(self.upgrade_button_1.c_img, self.upgrade_button_1.rect)
+            self.screen.blit(self.upgrade_button_2.c_img, self.upgrade_button_2.rect)
+            self.screen.blit(self.upgrade_button_3.c_img, self.upgrade_button_3.rect)
+            self.screen.blit(self.upgrade_button_4.c_img, self.upgrade_button_4.rect)
+            self.screen.blit(self.upgrade_button_5.c_img, self.upgrade_button_5.rect)
 
     # Input Function
     def inputs(self):
@@ -119,11 +181,6 @@ class Game(object):
                     self.menu_panel.visibility = False
                 elif not self.menu_panel.visibility:
                     self.menu_panel.visibility = True
-            if self.left_arrow.click():
-               self.screen_width = 580
-               self.screen_height = 1080
-               self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-            self.right_arrow.click()
 
     def run(self):
         running = True
@@ -133,7 +190,6 @@ class Game(object):
                 if event.type == pygame.QUIT:
                     running = False
             self.update()
-
             self.render()
             self.inputs()
             self.clock.tick(60)
