@@ -52,7 +52,7 @@ class Game(object):
         self.right_arrow = Button(1230, 400, self.right_arrow_img, self.right_arrow_p_img, 1)
 
         # Initialise Text
-        self.mana = self.font.render(str(self.mana_int), True, WHITE)
+        self.mana = self.font.render(self.human_format(int(self.mana_int)), True, WHITE)
         self.mana_rect = pygame.Rect(0, 0, self.mana.get_width(), self.mana.get_height())
         self.mana_bar_droplet = GameObject('Images/manadrop bar.png', (
         self.mana_bar.rect.width * 0.5 - self.mana_rect.width * 0.5 - self.mana_droplet.rect.width, 300), (34, 40))
@@ -66,7 +66,7 @@ class Game(object):
         if self.game_state == 1:
             # Increments Mana
             self.mana_int += self.mana_per_second * self.dt
-            self.mana = self.font.render(str(int(self.mana_int)), True, WHITE)
+            self.mana = self.font.render(self.human_format(int(self.mana_int)), True, WHITE)
             self.mana_rect = pygame.Rect(0, 0, self.mana.get_width(), self.mana.get_height())
 
             if self.menu_panel.visibility == True:
@@ -138,6 +138,14 @@ class Game(object):
             self.inputs()
             self.clock.tick(60)
 
+    def human_format(self, num):
+        self.num = num
+        self.num = float('{:.3g}'.format(self.num))
+        magnitude = 0
+        while abs(self.num) >= 1000:
+            magnitude += 1
+            self.num /= 1000.0
+        return '{}{}'.format('{:f}'.format(self.num).rstrip('0').rstrip('.'), ['', 'K', 'M', 'B', 'T'][magnitude])
 
 pygame.init()
 game = Game()
