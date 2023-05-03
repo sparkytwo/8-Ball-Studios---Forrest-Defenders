@@ -1,0 +1,875 @@
+{
+	"frames": {
+		"swatGruntLegs_00.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_01.png": {
+			"frame": {
+				"x": 32,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_02.png": {
+			"frame": {
+				"x": 63,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_03.png": {
+			"frame": {
+				"x": 94,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_04.png": {
+			"frame": {
+				"x": 125,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_05.png": {
+			"frame": {
+				"x": 156,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_06.png": {
+			"frame": {
+				"x": 187,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_07.png": {
+			"frame": {
+				"x": 218,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_08.png": {
+			"frame": {
+				"x": 249,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_09.png": {
+			"frame": {
+				"x": 280,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_10.png": {
+			"frame": {
+				"x": 311,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_11.png": {
+			"frame": {
+				"x": 342,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_12.png": {
+			"frame": {
+				"x": 373,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_13.png": {
+			"frame": {
+				"x": 404,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntLegs_14.png": {
+			"frame": {
+				"x": 435,
+				"y": 1,
+				"w": 29,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 29
+			}
+		},
+		"swatGruntM16Attack_0.png": {
+			"frame": {
+				"x": 466,
+				"y": 1,
+				"w": 36,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 36,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 36,
+				"h": 30
+			}
+		},
+		"swatGruntM16Attack_1.png": {
+			"frame": {
+				"x": 504,
+				"y": 1,
+				"w": 36,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 36,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 36,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_0.png": {
+			"frame": {
+				"x": 542,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_1.png": {
+			"frame": {
+				"x": 574,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_2.png": {
+			"frame": {
+				"x": 606,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_3.png": {
+			"frame": {
+				"x": 638,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_4.png": {
+			"frame": {
+				"x": 670,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_5.png": {
+			"frame": {
+				"x": 702,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_6.png": {
+			"frame": {
+				"x": 734,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntM16Walk_7.png": {
+			"frame": {
+				"x": 766,
+				"y": 1,
+				"w": 30,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 30
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 30
+			}
+		},
+		"swatGruntSilencedPistolAttack_0.png": {
+			"frame": {
+				"x": 798,
+				"y": 1,
+				"w": 43,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 43,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 43,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolAttack_1.png": {
+			"frame": {
+				"x": 843,
+				"y": 1,
+				"w": 43,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 43,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 43,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolAttack_2.png": {
+			"frame": {
+				"x": 888,
+				"y": 1,
+				"w": 43,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 43,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 43,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_0.png": {
+			"frame": {
+				"x": 933,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_1.png": {
+			"frame": {
+				"x": 973,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_2.png": {
+			"frame": {
+				"x": 1013,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_3.png": {
+			"frame": {
+				"x": 1053,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_4.png": {
+			"frame": {
+				"x": 1093,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_5.png": {
+			"frame": {
+				"x": 1133,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_6.png": {
+			"frame": {
+				"x": 1173,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntSilencedPistolWalk_7.png": {
+			"frame": {
+				"x": 1213,
+				"y": 1,
+				"w": 38,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 38
+			}
+		},
+		"swatGruntUnarmedWalk_0.png": {
+			"frame": {
+				"x": 1253,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_1.png": {
+			"frame": {
+				"x": 1279,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_2.png": {
+			"frame": {
+				"x": 1305,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_3.png": {
+			"frame": {
+				"x": 1331,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_4.png": {
+			"frame": {
+				"x": 1357,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_5.png": {
+			"frame": {
+				"x": 1383,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		},
+		"swatGruntUnarmedWalk_6.png": {
+			"frame": {
+				"x": 1409,
+				"y": 1,
+				"w": 24,
+				"h": 24
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 24
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 24
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "swatGruntSpriteSheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 1434,
+			"h": 40
+		},
+		"scale": "1"
+	}
+}
