@@ -2,11 +2,20 @@ import pygame
 from colors import *
 from GameObject import GameObject
 from button import Button
+from spritesheet import Spritesheet
+from gamemap import GameMap
 
 
 class Game(object):
     def __init__(self):
         # Setting up the Window
+        self.move_left = None
+        self.move_right = None
+        self.move_up = None
+        self.move_down = None
+        self.moving = False
+        self.angle = 0
+
         self.screen_width = 580
         self.screen_height = 1080
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -128,6 +137,56 @@ class Game(object):
         self.upgrade_4_level_text_rect = pygame.Rect(700, 690, 100, 100)
         self.upgrade_5_level_text = self.font_menu.render("lvl " + str(self.upgrade_5_level), True, BLACK)
         self.upgrade_5_level_text_rect = pygame.Rect(700, 850, 100, 100)
+
+        self.map = GameMap()
+        self.map_img = self.map.make_map()
+
+
+        self.elf_spritesheet = Spritesheet('Images/elf/elf_spritesheet.png')
+        self.elf_torso_sprites = [
+            self.elf_spritesheet.parse_sprite('elfWalk_00.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_01.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_02.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_03.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_04.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_05.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_06.png'),
+            self.elf_spritesheet.parse_sprite('elfWalk_07.png')
+        ]
+        self.elf_leg_sprites = [
+            self.elf_spritesheet.parse_sprite('elfLegs_00.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_01.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_02.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_03.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_04.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_05.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_06.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_07.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_08.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_09.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_10.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_11.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_12.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_13.png'),
+            self.elf_spritesheet.parse_sprite('elfLegs_14.png')
+
+        ]
+        self.elf_active_torso = self.elf_torso_sprites[0]
+        self.elf_active_torso_rect = self.elf_active_torso.get_rect()
+        self.elf_active_torso = pygame.transform.scale(self.elf_active_torso, (self.elf_active_torso_rect.width *2, self.elf_active_torso_rect.height*2))
+        self.elf_active_torso_rect.center = (self.screen_height / 2,self.screen_width / 2)
+        self.elf_torso_animation_frame = 0
+        self.elf_torso_animation_frames = self.elf_torso_sprites
+
+        self.elf_active_leg = self.elf_leg_sprites[0]
+        self.elf_active_leg_rect = self.elf_active_leg.get_rect()
+        self.elf_active_leg = pygame.transform.scale(self.elf_active_leg, (self.elf_active_leg_rect.width * 2, self.elf_active_leg_rect.height *2))
+        self.elf_active_leg_rect.center = (self.screen_height / 2, self.screen_width / 2)
+        self.elf_leg_animation_frame = 0
+        self.elf_leg_animation_frames = self.elf_leg_sprites
+
+
+        self.animation_speed = 0.3
 
     # Update Function
     def update(self):
@@ -284,6 +343,43 @@ class Game(object):
 
             self.mana_droplet.image.set_alpha(self.alpha)
             self.mana_incr_drop.set_alpha(self.alpha)
+        if self.game_state == 2:
+            self.screen = pygame.display.set_mode((self.screen_height, self.screen_width))
+            self.map_rect = self.map_img.get_rect()
+
+            if self.moving:
+                self.elf_torso_animation_frame += self.animation_speed
+                self.elf_leg_animation_frame += self.animation_speed
+
+                if self.elf_torso_animation_frame >= len(self.elf_torso_sprites):
+                    self.elf_torso_animation_frame = 0
+
+                if self.elf_leg_animation_frame >= len(self.elf_leg_sprites):
+                    self.elf_leg_animation_frame = 0
+
+                self.elf_active_torso = self.elf_torso_animation_frames[int(self.elf_torso_animation_frame)]
+                self.elf_active_torso = pygame.transform.scale(self.elf_active_torso, (self.elf_active_torso_rect.width * 2, self.elf_active_torso_rect.height * 2))
+                self.elf_active_torso = pygame.transform.rotate(self.elf_active_torso, self.angle)
+
+                self.elf_active_leg = self.elf_leg_animation_frames[int(self.elf_leg_animation_frame)]
+                self.elf_active_leg = pygame.transform.scale(self.elf_active_leg, (self.elf_active_leg_rect.width * 2, self.elf_active_leg_rect.height *2))
+                self.elf_active_leg = pygame.transform.rotate(self.elf_active_leg, self.angle)
+
+            if self.move_left:
+                self.angle = 180
+                self.map.offset_x += 200 * self.dt
+            if self.move_right:
+                self.angle = 0
+                self.map.offset_x -= 200 * self.dt
+            if self.move_up:
+                self.angle = 90
+                self.map.offset_y += 200 * self.dt
+            if self.move_down:
+                self.angle = 270
+                self.map.offset_y -= 200 * self.dt
+
+
+
 
 
 
@@ -325,10 +421,17 @@ class Game(object):
             self.screen.blit(self.upgrade_3_level_text, self.upgrade_3_level_text_rect)
             self.screen.blit(self.upgrade_4_level_text, self.upgrade_4_level_text_rect)
             self.screen.blit(self.upgrade_5_level_text, self.upgrade_5_level_text_rect)
-        pygame.display.flip()
+            pygame.display.flip()
+
+        if self.game_state == 2:
+            self.map.render(self.screen)
+            self.screen.blit(self.elf_active_leg, self.elf_active_leg_rect)
+            self.screen.blit(self.elf_active_torso, self.elf_active_torso_rect)
+
+            pygame.display.flip()
 
     # Input Function
-    def inputs(self):
+    def inputs(self,event):
         if self.game_state == 1:
             if self.menu.click():
                 if self.menu_panel.visibility:
@@ -336,16 +439,51 @@ class Game(object):
                 elif not self.menu_panel.visibility:
                     self.menu_panel.visibility = True
 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                self.game_state = 2
+        if self.game_state == 2:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    self.move_left = True
+                    self.moving = True
+                if event.key == pygame.K_RIGHT:
+                    self.move_right = True
+                    self.moving = True
+                if event.key == pygame.K_UP:
+                    self.move_up = True
+                    self.moving = True
+                if event.key == pygame.K_DOWN:
+                    self.move_down = True
+                    self.moving = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    self.move_left = False
+                    self.moving = False
+                if event.key == pygame.K_RIGHT:
+                    self.move_right = False
+                    self.moving = False
+                if event.key == pygame.K_UP:
+                    self.move_up = False
+                    self.moving = False
+                if event.key == pygame.K_DOWN:
+                    self.move_down = False
+                    self.moving = False
+
+
+
     def run(self):
         running = True
 
         while running:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
+                if event.type == pygame.KEYDOWN:
+                    if event.type == pygame.QUIT or event.key == pygame.K_ESCAPE:
+                        running = False
+                    self.inputs(event)
             self.update()
             self.render()
-            self.inputs()
+            self.inputs(event)
             self.clock.tick(60)
 
     def human_format(self, num):
