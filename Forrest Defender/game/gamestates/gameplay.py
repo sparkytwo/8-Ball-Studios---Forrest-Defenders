@@ -37,7 +37,12 @@ class GamePlay(GameState):
         self.spawn_points = len(self.data.game_map.spawns)
         rands = random.sample(self.data.game_map.spawns, self.spawn_points)
         for i in range(0, self.enemy_count):
-            enemy = Enemy_Ranged()
+            ran_enemy =  random.randint(1,2)
+            if ran_enemy == 1:
+                enemy = Enemy_Melee()
+            if ran_enemy == 2:
+                enemy = Enemy_Ranged()
+
             self.enemies.append(enemy)
             x, y = rands.pop()
             self.enemies[i].pos_x = x * 2
@@ -151,7 +156,11 @@ class GamePlay(GameState):
         if len(self.enemies) == 0:
             rands = random.sample(self.data.game_map.spawns, self.enemy_count)
             for i in range(0, self.enemy_count):
-                enemy = Enemy_Ranged()
+                ran_enemy = random.randint(1,2)
+                if ran_enemy == 1:
+                    enemy = Enemy_Melee()
+                elif ran_enemy == 2:
+                    enemy = Enemy_Ranged()
                 self.enemies.append(enemy)
                 x, y = rands.pop()
                 self.enemies[i].pos_x = x * 2

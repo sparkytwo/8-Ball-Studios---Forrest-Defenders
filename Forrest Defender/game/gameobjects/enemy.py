@@ -298,10 +298,9 @@ class Enemy_Melee:
     def update_position(self, player_x, player_y, data, game_time: pyasge.GameTime,bullets, Bullets, audio_system, sounds):
         if self.state == 0 and player_y > self.pos_y - 400 and player_y < self.pos_y + 400 and player_x > self.pos_x - 400 and player_x < self.pos_x + 400:
             self.move(pathfind(pyasge.Point2D(self.pos_x, self.pos_y), pyasge.Point2D(player_x, player_y), data))
-            r_offset = random.randint(6, 10)
-            if len(self.destination) > r_offset:
+            if len(self.destination) > 0:
                 self.tile_move()
-            if len(self.destination) < r_offset + 1:
+            if len(self.destination) < 1:
                 self.state = 1
         if self.state == 1:
             self.destination = []
