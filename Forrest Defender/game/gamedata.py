@@ -19,7 +19,7 @@ class GameData:
         self.cursor = None
         self.fonts = {}
         self.game_map = None
-        self.game_res = [580, 1080]
+        self.game_res = [1920, 1080]
         self.inputs = None
         self.gamepad = None
         self.prev_gamepad = None

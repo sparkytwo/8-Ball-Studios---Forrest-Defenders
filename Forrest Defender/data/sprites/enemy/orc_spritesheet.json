@@ -1,0 +1,635 @@
+{
+	"frames": {
+		"orcAttack_00.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 18,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 18,
+				"h": 28
+			}
+		},
+		"orcAttack_01.png": {
+			"frame": {
+				"x": 21,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcAttack_02.png": {
+			"frame": {
+				"x": 39,
+				"y": 1,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"orcAttack_03.png": {
+			"frame": {
+				"x": 61,
+				"y": 1,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"orcAttack_04.png": {
+			"frame": {
+				"x": 83,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcAttack_05.png": {
+			"frame": {
+				"x": 101,
+				"y": 1,
+				"w": 32,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 32,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 32,
+				"h": 23
+			}
+		},
+		"orcAttack_06.png": {
+			"frame": {
+				"x": 135,
+				"y": 1,
+				"w": 32,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 32,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 32,
+				"h": 29
+			}
+		},
+		"orcAttack_07.png": {
+			"frame": {
+				"x": 169,
+				"y": 1,
+				"w": 23,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 23,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 23,
+				"h": 29
+			}
+		},
+		"orcAttack_08.png": {
+			"frame": {
+				"x": 194,
+				"y": 1,
+				"w": 22,
+				"h": 29
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 29
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 29
+			}
+		},
+		"orcLegs_00.png": {
+			"frame": {
+				"x": 218,
+				"y": 1,
+				"w": 12,
+				"h": 14
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 14
+			},
+			"sourceSize": {
+				"w": 12,
+				"h": 14
+			}
+		},
+		"orcLegs_01.png": {
+			"frame": {
+				"x": 232,
+				"y": 1,
+				"w": 19,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 19,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 19,
+				"h": 15
+			}
+		},
+		"orcLegs_02.png": {
+			"frame": {
+				"x": 253,
+				"y": 1,
+				"w": 22,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 15
+			}
+		},
+		"orcLegs_03.png": {
+			"frame": {
+				"x": 277,
+				"y": 1,
+				"w": 27,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 15
+			}
+		},
+		"orcLegs_04.png": {
+			"frame": {
+				"x": 306,
+				"y": 1,
+				"w": 22,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 15
+			}
+		},
+		"orcLegs_05.png": {
+			"frame": {
+				"x": 330,
+				"y": 1,
+				"w": 19,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 19,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 19,
+				"h": 15
+			}
+		},
+		"orcLegs_06.png": {
+			"frame": {
+				"x": 351,
+				"y": 1,
+				"w": 12,
+				"h": 14
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 14
+			},
+			"sourceSize": {
+				"w": 12,
+				"h": 14
+			}
+		},
+		"orcLegs_07.png": {
+			"frame": {
+				"x": 365,
+				"y": 1,
+				"w": 12,
+				"h": 14
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 14
+			},
+			"sourceSize": {
+				"w": 12,
+				"h": 14
+			}
+		},
+		"orcLegs_08.png": {
+			"frame": {
+				"x": 379,
+				"y": 1,
+				"w": 19,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 19,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 19,
+				"h": 15
+			}
+		},
+		"orcLegs_09.png": {
+			"frame": {
+				"x": 400,
+				"y": 1,
+				"w": 22,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 15
+			}
+		},
+		"orcLegs_10.png": {
+			"frame": {
+				"x": 424,
+				"y": 1,
+				"w": 27,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 15
+			}
+		},
+		"orcLegs_11.png": {
+			"frame": {
+				"x": 453,
+				"y": 1,
+				"w": 22,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 15
+			}
+		},
+		"orcLegs_12.png": {
+			"frame": {
+				"x": 477,
+				"y": 1,
+				"w": 19,
+				"h": 15
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 19,
+				"h": 15
+			},
+			"sourceSize": {
+				"w": 19,
+				"h": 15
+			}
+		},
+		"orcLegs_13.png": {
+			"frame": {
+				"x": 498,
+				"y": 1,
+				"w": 12,
+				"h": 14
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 14
+			},
+			"sourceSize": {
+				"w": 12,
+				"h": 14
+			}
+		},
+		"orcWalk_00.png": {
+			"frame": {
+				"x": 512,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcWalk_01.png": {
+			"frame": {
+				"x": 530,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcWalk_02.png": {
+			"frame": {
+				"x": 548,
+				"y": 1,
+				"w": 18,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 18,
+				"h": 28
+			}
+		},
+		"orcWalk_03.png": {
+			"frame": {
+				"x": 568,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcWalk_04.png": {
+			"frame": {
+				"x": 586,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcWalk_05.png": {
+			"frame": {
+				"x": 604,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		},
+		"orcWalk_06.png": {
+			"frame": {
+				"x": 622,
+				"y": 1,
+				"w": 17,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 17,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 17,
+				"h": 28
+			}
+		},
+		"orcWalk_07.png": {
+			"frame": {
+				"x": 641,
+				"y": 1,
+				"w": 16,
+				"h": 28
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 28
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 28
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 658,
+			"h": 31
+		},
+		"scale": "1"
+	}
+}
