@@ -25,6 +25,7 @@ class Game(object):
         self.mana_int = 0
         self.mana_per_second = 1
         self.alpha = 0
+        self.raid_clock = 0
         # Fonts
 
         self.font = pygame.font.SysFont('Futura', 55)
@@ -129,6 +130,10 @@ class Game(object):
         self.upgrade_5_level_text = self.font_menu.render("lvl " + str(self.upgrade_5_level), True, BLACK)
         self.upgrade_5_level_text_rect = pygame.Rect(700, 850, 100, 100)
 
+        # Goblin Image
+        self.goblin_img = pygame.image.load('Images/goblin.png')
+        self.goblin_p_img = pygame.image.load('Images/goblin_pressed.png')
+        self.goblin_button = Button(-300, 750, self.goblin_img, self.goblin_p_img, 1)
     # Update Function
     def update(self):
         if self.game_state == 1:
@@ -137,6 +142,7 @@ class Game(object):
             self.mana = self.font.render(self.human_format(int(self.mana_int)), True, WHITE)
             self.mana_rect = pygame.Rect(0, 0, self.mana.get_width(), self.mana.get_height())
             self.mana_incr_drop = self.font_small.render(str(self.mana_per_second), True, WHITE)
+            self.raid_clock += 1 * self.dt
 
             if self.upgrade_button_5_boolean:
                 self.background = GameObject('Images/background 6.png', (0, 0), (580, 1080))
@@ -286,6 +292,13 @@ class Game(object):
             self.mana_incr_drop.set_alpha(self.alpha)
 
 
+            if self.raid_clock > 20 and self.goblin_button.rect.x < 50:
+                self.goblin_button.rect.x += 500 * self.dt
+            if self.goblin_button.click():
+                self.goblin_button.rect.x = - 300
+                self.raid_clock = 0
+
+
 
 
 
@@ -299,6 +312,8 @@ class Game(object):
             self.screen.blit(self.mana, (self.mana_bar.rect.width * 0.5 - self.mana_rect.width * 0.5, 30))
             self.screen.blit(self.mana_bar_droplet.image,(self.mana_bar.rect.width * 0.5 - self.mana_rect.width * 0.5 - self.mana_bar_droplet.rect.width - 10, 30))
             self.screen.blit(self.mana_incr, (self.mana_bar.rect.width * 0.5 - self.mana_incr_rect.width * 0.5, 110))
+
+            self.screen.blit(self.goblin_button.c_img, self.goblin_button.rect)
 
             self.screen.blit(self.menu.c_img, self.menu.rect)
             self.screen.blit(self.menu_panel.image, self.menu_panel.rect)
@@ -326,6 +341,7 @@ class Game(object):
             self.screen.blit(self.upgrade_3_level_text, self.upgrade_3_level_text_rect)
             self.screen.blit(self.upgrade_4_level_text, self.upgrade_4_level_text_rect)
             self.screen.blit(self.upgrade_5_level_text, self.upgrade_5_level_text_rect)
+
         pygame.display.flip()
 
     # Input Function
