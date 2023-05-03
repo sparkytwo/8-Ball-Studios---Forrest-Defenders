@@ -20,7 +20,7 @@ class MyASGEGame(pyasge.ASGEGame):
         self.data = GameData()
         self.data.cursor = pyasge.Sprite()
 
-        self.data.game_map = GameMap(self.renderer, "./data/map/Alley.tmx")
+        self.data.game_map = GameMap(self.renderer, "./data/map/map.tmx")
         self.data.inputs = self.inputs
         self.data.renderer = self.renderer
         self.data.game_resolution = [1920, 1080]

@@ -4,7 +4,7 @@ import pyasge
 import math
 from game.gamedata import GameData
 from game.gameobjects.heister import Heister
-from game.gameobjects.enemy import Enemy
+from game.gameobjects.enemy import *
 from game.gamestate import GameState
 from game.spritesheet import Spritesheet
 from game.gameobjects.bullet import Bullet
@@ -33,11 +33,11 @@ class GamePlay(GameState):
         self.bullets = []
         self.enemies = []
 
-        self.enemy_count = 10
+        self.enemy_count = 17
         self.spawn_points = len(self.data.game_map.spawns)
         rands = random.sample(self.data.game_map.spawns, self.spawn_points)
         for i in range(0, self.enemy_count):
-            enemy = Enemy()
+            enemy = Enemy_Ranged()
             self.enemies.append(enemy)
             x, y = rands.pop()
             self.enemies[i].pos_x = x * 2
@@ -151,7 +151,7 @@ class GamePlay(GameState):
         if len(self.enemies) == 0:
             rands = random.sample(self.data.game_map.spawns, self.enemy_count)
             for i in range(0, self.enemy_count):
-                enemy = Enemy()
+                enemy = Enemy_Ranged()
                 self.enemies.append(enemy)
                 x, y = rands.pop()
                 self.enemies[i].pos_x = x * 2

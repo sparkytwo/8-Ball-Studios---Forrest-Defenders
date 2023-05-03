@@ -79,7 +79,7 @@ class Heister:
             self.torso_animation_frames = self.torso_M16_walk_frames
 
         self.pos_x = 200
-        self.pos_y = 700
+        self.pos_y = 3500
         self.angle = 0
 
         self.leg_animation_frame = 0
