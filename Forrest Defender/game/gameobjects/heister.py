@@ -96,7 +96,7 @@ class Heister:
         self.ammo_in_magazine = 20
         self.firing = False
         self.fire_delay = 0
-        self.fire_rate = 3
+        self.fire_rate = 0.5
 
         self.active_torso_frame.z_order = 10
         self.active_leg_frame.z_order = 10
