@@ -288,6 +288,7 @@ class Game(object):
 
 
 
+
     # Render Function
     def render(self):
         if self.game_state == 1:
