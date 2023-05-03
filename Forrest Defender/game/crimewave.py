@@ -38,8 +38,8 @@ class MyASGEGame(pyasge.ASGEGame):
     def init_audio(self)-> None:
         self.data.audio_system.init()
         self.data.bg_audio = self.data.audio_system.create_sound("./data/Audio/level_music.wav")
-        self.data.bg_audio_channel = self.data.audio_system.play_sound(self.data.bg_audio)
-        self.data.bg_audio_channel.volume = 0.25
+        #self.data.bg_audio_channel = self.data.audio_system.play_sound(self.data.bg_audio)
+        #self.data.bg_audio_channel.volume = 0.25
 
 
     def init_cursor(self):

@@ -8,50 +8,58 @@ from game.pathfinding import pathfind
 
 class Enemy_Ranged:
     def __init__(self):
-        self.alive_spritesheet = Spritesheet("/data/sprites/SWAT/swatGruntSpriteSheet.png")
+        self.alive_spritesheet = Spritesheet("/data/sprites/enemy/skeleton_spritesheet.png")
 
         self.torso_walk_frames = [
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_0.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_1.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_2.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_3.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_4.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_5.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_6.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_7.png')
+            self.alive_spritesheet.parseSprite('skeletonWalk_00.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_01.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_02.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_03.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_04.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_05.png'),
+            self.alive_spritesheet.parseSprite('skeletonWalk_06.png')
         ]
 
         self.leg_frames = [
-            self.alive_spritesheet.parseSprite('swatGruntLegs_00.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_01.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_02.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_03.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_04.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_05.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_06.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_07.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_08.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_09.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_10.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_11.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_12.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_13.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_14.png')
+            self.alive_spritesheet.parseSprite('skeletonLegs_00.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_01.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_02.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_03.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_04.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_05.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_06.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_07.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_08.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_09.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_10.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_11.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_12.png'),
+            self.alive_spritesheet.parseSprite('skeletonLegs_13.png')
         ]
 
-        self.dead_spritesheet = Spritesheet("/data/sprites/SWAT/swatGruntDeadSpriteSheet.png")
+        self.dead_spritesheet = Spritesheet("/data/sprites/death/death_spritesheet.png")
         self.dead_frames = [
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_1.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_2.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_3.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_4.png')
+            self.dead_spritesheet.parseSprite('death_00.png'),
+            self.dead_spritesheet.parseSprite('death_01.png'),
+            self.dead_spritesheet.parseSprite('death_02.png'),
+            self.dead_spritesheet.parseSprite('death_03.png'),
+            self.dead_spritesheet.parseSprite('death_04.png'),
+            self.dead_spritesheet.parseSprite('death_05.png'),
+            self.dead_spritesheet.parseSprite('death_06.png'),
+            self.dead_spritesheet.parseSprite('death_07.png'),
+            self.dead_spritesheet.parseSprite('death_08.png'),
+            self.dead_spritesheet.parseSprite('death_09.png'),
+            self.dead_spritesheet.parseSprite('death_10.png'),
+            self.dead_spritesheet.parseSprite('death_11.png'),
+            self.dead_spritesheet.parseSprite('death_12.png'),
+            self.dead_spritesheet.parseSprite('death_13.png'),
+            self.dead_spritesheet.parseSprite('death_14.png'),
+            self.dead_spritesheet.parseSprite('death_15.png'),
         ]
-        self.active_dead_frame = self.dead_frames[0]
 
         self.active_torso_frame = self.torso_walk_frames[0]
-
-
         self.active_leg_frame = self.leg_frames[0]
+        self.active_dead_frame = self.dead_frames[0]
         self.active_leg_frame.scale = 3
 
         self.pos_x = 0
@@ -64,6 +72,9 @@ class Enemy_Ranged:
 
         self.leg_animation_frame = 0
         self.leg_animation_frames = self.leg_frames
+
+        self.dead_animation_frame = 0
+        self.dead_animation_frames = self.dead_frames
 
         self.animation_speed = 0.2  # adjust as needed
         self.moving = False
@@ -169,6 +180,20 @@ class Enemy_Ranged:
             self.active_leg_frame = self.leg_animation_frames[int(self.torso_animation_frame)]
             self.active_torso_frame = self.torso_animation_frames[int(self.torso_animation_frame)]
 
+        if self.alive == False:
+            self.dead_animation_frame += self.animation_speed
+            if self.dead_animation_frame >= len(self.dead_animation_frames):
+                self.dead_animation_frame = 15
+            self.active_dead_frame = self.dead_animation_frames[int(self.dead_animation_frame)]
+
+            # self.active_dead_frame = self.dead_frames[12]
+            self.active_dead_frame.scale = 2.5
+            self.active_dead_frame.x = self.active_torso_frame.x - 225
+            self.active_dead_frame.y = self.active_torso_frame.y - 220
+
+
+
+
         torso_half_width = self.active_torso_frame.width / 2
         torso_half_height = self.active_torso_frame.height / 2
 
@@ -198,65 +223,70 @@ class Enemy_Ranged:
             self.update_animation()
         if self.health <= 0 and self.alive:
             self.alive = False
-            random_death = random.randint(0, 3)
-            if random_death == 0:
-                self.active_dead_frame = self.dead_frames[0]
-            elif random_death == 1:
-                self.active_dead_frame = self.dead_frames[1]
-            elif random_death == 2:
-                self.active_dead_frame = self.dead_frames[2]
-            else:
-                self.active_dead_frame = self.dead_frames[3]
-            self.active_dead_frame.scale = 2.5
-            self.active_dead_frame.x = self.active_torso_frame.x
-            self.active_dead_frame.y = self.active_torso_frame.y
+            self.update_animation()
+
+
+
+
+
 
     def render(self, renderer: pyasge.Renderer):
         if self.alive:
             renderer.render(self.active_torso_frame)
-        else:
-            renderer.render(self.active_dead_frame)
+        #else:
+        #    renderer.render(self.active_dead_frame)
 
 class Enemy_Melee:
     def __init__(self):
-        self.alive_spritesheet = Spritesheet("/data/sprites/SWAT/swatGruntSpriteSheet.png")
+        self.alive_spritesheet = Spritesheet("/data/sprites/enemy/orc_spritesheet.png")
 
         self.torso_walk_frames = [
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_0.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_1.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_2.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_3.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_4.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_5.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_6.png'),
-            self.alive_spritesheet.parseSprite('swatGruntM16Walk_7.png')
+            self.alive_spritesheet.parseSprite('orcWalk_00.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_01.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_02.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_03.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_04.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_05.png'),
+            self.alive_spritesheet.parseSprite('orcWalk_06.png')
         ]
 
         self.leg_frames = [
-            self.alive_spritesheet.parseSprite('swatGruntLegs_00.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_01.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_02.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_03.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_04.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_05.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_06.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_07.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_08.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_09.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_10.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_11.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_12.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_13.png'),
-            self.alive_spritesheet.parseSprite('swatGruntLegs_14.png')
+            self.alive_spritesheet.parseSprite('orcLegs_00.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_01.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_02.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_03.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_04.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_05.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_06.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_07.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_08.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_09.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_10.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_11.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_12.png'),
+            self.alive_spritesheet.parseSprite('orcLegs_13.png')
         ]
 
-        self.dead_spritesheet = Spritesheet("/data/sprites/SWAT/swatGruntDeadSpriteSheet.png")
+        self.dead_spritesheet = Spritesheet("/data/sprites/death/death_spritesheet.png")
         self.dead_frames = [
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_1.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_2.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_3.png'),
-            self.dead_spritesheet.parseSprite('swatGruntDeadSpriteSheet_4.png')
+            self.dead_spritesheet.parseSprite('death_00.png'),
+            self.dead_spritesheet.parseSprite('death_01.png'),
+            self.dead_spritesheet.parseSprite('death_02.png'),
+            self.dead_spritesheet.parseSprite('death_03.png'),
+            self.dead_spritesheet.parseSprite('death_04.png'),
+            self.dead_spritesheet.parseSprite('death_05.png'),
+            self.dead_spritesheet.parseSprite('death_06.png'),
+            self.dead_spritesheet.parseSprite('death_07.png'),
+            self.dead_spritesheet.parseSprite('death_08.png'),
+            self.dead_spritesheet.parseSprite('death_09.png'),
+            self.dead_spritesheet.parseSprite('death_10.png'),
+            self.dead_spritesheet.parseSprite('death_11.png'),
+            self.dead_spritesheet.parseSprite('death_12.png'),
+            self.dead_spritesheet.parseSprite('death_13.png'),
+            self.dead_spritesheet.parseSprite('death_14.png'),
+            self.dead_spritesheet.parseSprite('death_15.png'),
         ]
+
         self.active_dead_frame = self.dead_frames[0]
 
         self.active_torso_frame = self.torso_walk_frames[0]
@@ -275,6 +305,9 @@ class Enemy_Melee:
 
         self.leg_animation_frame = 0
         self.leg_animation_frames = self.leg_frames
+
+        self.dead_animation_frame = 0
+        self.dead_animation_frames = self.dead_frames
 
         self.animation_speed = 0.2  # adjust as needed
         self.moving = False
@@ -379,6 +412,12 @@ class Enemy_Melee:
             self.active_leg_frame = self.leg_animation_frames[int(self.torso_animation_frame)]
             self.active_torso_frame = self.torso_animation_frames[int(self.torso_animation_frame)]
 
+        if self.alive == False:
+            self.dead_animation_frame += self.animation_speed
+            if self.dead_animation_frame >= len(self.dead_animation_frames):
+                self.dead_animation_frame = 15
+            self.active_dead_frame = self.dead_animation_frames[int(self.dead_animation_frame)]
+
         torso_half_width = self.active_torso_frame.width / 2
         torso_half_height = self.active_torso_frame.height / 2
 
@@ -408,24 +447,14 @@ class Enemy_Melee:
             self.update_animation()
         if self.health <= 0 and self.alive:
             self.alive = False
-            random_death = random.randint(0, 3)
-            if random_death == 0:
-                self.active_dead_frame = self.dead_frames[0]
-            elif random_death == 1:
-                self.active_dead_frame = self.dead_frames[1]
-            elif random_death == 2:
-                self.active_dead_frame = self.dead_frames[2]
-            else:
-                self.active_dead_frame = self.dead_frames[3]
-            self.active_dead_frame.scale = 2.5
-            self.active_dead_frame.x = self.active_torso_frame.x
-            self.active_dead_frame.y = self.active_torso_frame.y
+
+
 
     def render(self, renderer: pyasge.Renderer):
         if self.alive:
             renderer.render(self.active_torso_frame)
-        else:
-            renderer.render(self.active_dead_frame)
+        #else:
+        #*-    renderer.render(self.active_dead_frame)
 
 
 

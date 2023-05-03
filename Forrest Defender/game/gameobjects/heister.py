@@ -8,50 +8,60 @@ from game.gameobjects.gamemap import GameMap
 
 class Heister:
     def __init__(self):
-        self.spritesheet = Spritesheet("/data/sprites/heisters/chief/chiefSpriteSheet.png")
+        self.spritesheet = Spritesheet("/data/sprites/heisters/elf/elf_spritesheet.png")
 
         self.torso_unarmed_walk_frames = [
-            self.spritesheet.parseSprite('chiefUnarmedWalk_0.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_1.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_2.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_3.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_4.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_5.png'),
-            self.spritesheet.parseSprite('chiefUnarmedWalk_6.png')
+            self.spritesheet.parseSprite('elfWalk_00.png'),
+            self.spritesheet.parseSprite('elfWalk_01.png'),
+            self.spritesheet.parseSprite('elfWalk_02.png'),
+            self.spritesheet.parseSprite('elfWalk_03.png'),
+            self.spritesheet.parseSprite('elfWalk_04.png'),
+            self.spritesheet.parseSprite('elfWalk_05.png'),
+            self.spritesheet.parseSprite('elfWalk_06.png')
         ]
 
         self.torso_M16_walk_frames = [
-            self.spritesheet.parseSprite('chiefM16Walk_0.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_1.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_2.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_3.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_4.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_5.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_6.png'),
-            self.spritesheet.parseSprite('chiefM16Walk_7.png')
+            self.spritesheet.parseSprite('elfWalk_00.png'),
+            self.spritesheet.parseSprite('elfWalk_01.png'),
+            self.spritesheet.parseSprite('elfWalk_02.png'),
+            self.spritesheet.parseSprite('elfWalk_03.png'),
+            self.spritesheet.parseSprite('elfWalk_04.png'),
+            self.spritesheet.parseSprite('elfWalk_05.png'),
+            self.spritesheet.parseSprite('elfWalk_06.png'),
+            self.spritesheet.parseSprite('elfWalk_07.png')
         ]
 
         self.torso_M16_attack_frames = [
-            self.spritesheet.parseSprite('chiefM16Attack_0.png'),
-            self.spritesheet.parseSprite('chiefM16Attack_1.png')
+            self.spritesheet.parseSprite('elfAttack_00.png'),
+            self.spritesheet.parseSprite('elfAttack_01.png'),
+            self.spritesheet.parseSprite('elfAttack_02.png'),
+            self.spritesheet.parseSprite('elfAttack_03.png'),
+            self.spritesheet.parseSprite('elfAttack_04.png'),
+            self.spritesheet.parseSprite('elfAttack_05.png'),
+            self.spritesheet.parseSprite('elfAttack_06.png'),
+            self.spritesheet.parseSprite('elfAttack_07.png'),
+            self.spritesheet.parseSprite('elfAttack_08.png'),
+            self.spritesheet.parseSprite('elfAttack_09.png'),
+            self.spritesheet.parseSprite('elfAttack_10.png'),
+            self.spritesheet.parseSprite('elfAttack_11.png')
         ]
 
         self.leg_frames = [
-            self.spritesheet.parseSprite('chiefLegs_00.png'),
-            self.spritesheet.parseSprite('chiefLegs_01.png'),
-            self.spritesheet.parseSprite('chiefLegs_02.png'),
-            self.spritesheet.parseSprite('chiefLegs_03.png'),
-            self.spritesheet.parseSprite('chiefLegs_04.png'),
-            self.spritesheet.parseSprite('chiefLegs_05.png'),
-            self.spritesheet.parseSprite('chiefLegs_06.png'),
-            self.spritesheet.parseSprite('chiefLegs_07.png'),
-            self.spritesheet.parseSprite('chiefLegs_08.png'),
-            self.spritesheet.parseSprite('chiefLegs_09.png'),
-            self.spritesheet.parseSprite('chiefLegs_10.png'),
-            self.spritesheet.parseSprite('chiefLegs_11.png'),
-            self.spritesheet.parseSprite('chiefLegs_12.png'),
-            self.spritesheet.parseSprite('chiefLegs_13.png'),
-            self.spritesheet.parseSprite('chiefLegs_14.png')
+            self.spritesheet.parseSprite('elfLegs_00.png'),
+            self.spritesheet.parseSprite('elfLegs_01.png'),
+            self.spritesheet.parseSprite('elfLegs_02.png'),
+            self.spritesheet.parseSprite('elfLegs_03.png'),
+            self.spritesheet.parseSprite('elfLegs_04.png'),
+            self.spritesheet.parseSprite('elfLegs_05.png'),
+            self.spritesheet.parseSprite('elfLegs_06.png'),
+            self.spritesheet.parseSprite('elfLegs_07.png'),
+            self.spritesheet.parseSprite('elfLegs_08.png'),
+            self.spritesheet.parseSprite('elfLegs_09.png'),
+            self.spritesheet.parseSprite('elfLegs_10.png'),
+            self.spritesheet.parseSprite('elfLegs_11.png'),
+            self.spritesheet.parseSprite('elfLegs_12.png'),
+            self.spritesheet.parseSprite('elfLegs_13.png'),
+            self.spritesheet.parseSprite('elfLegs_14.png')
         ]
 
         self.current_weapon = 1
