@@ -8,7 +8,7 @@ class Bullet:
     def __init__(self, spawn: pyasge.Point2D, angle, spawn_x, spawn_y, dir_x, dir_y, player_width) -> None:
         self.sprite = pyasge.Sprite()
         self.sprite.loadTexture("data/sprites/bullet/bullet.png")
-        self.sprite.scale = 0.03
+        self.sprite.scale = 3
         self.sprite.z_order = 1
         self.width = self.sprite.width
         self.height = self.sprite.height

@@ -106,7 +106,7 @@ class Heister:
         self.ammo_in_magazine = 20
         self.firing = False
         self.fire_delay = 0
-        self.fire_rate = 0.5
+        self.fire_rate = 0.6
 
         self.active_torso_frame.z_order = 10
         self.active_leg_frame.z_order = 10
@@ -216,8 +216,8 @@ class Heister:
         leg_half_height = self.active_leg_frame.height / 2
 
         self.active_leg_frame.scale = 3
-        self.active_leg_frame.x = self.pos_x - leg_half_width
-        self.active_leg_frame.y = self.pos_y - leg_half_height
+        self.active_leg_frame.x = self.pos_x 
+        self.active_leg_frame.y = self.pos_y
         self.active_leg_frame.rotation = self.angle
 
         self.sprite.scale = 3
@@ -226,30 +226,8 @@ class Heister:
         self.sprite.rotation = self.angle
 
     def click_handler(self, event: pyasge.ClickEvent) -> None:
-        if self.ammo_in_magazine == 0 and self.ammo == 0:
-            # Player cannot shoot if both the magazine and the ammo pool are empty
-            return
 
-        if self.ammo_in_magazine == 0:
-            # Reload if the magazine is empty
-            if event.button is pyasge.MOUSE.MOUSE_BTN2 and event.action is pyasge.MOUSE.BUTTON_PRESSED:
-                if self.ammo >= 20:
-                    self.ammo -= 20
-                    self.ammo_in_magazine = 20
-                else:
-                    self.ammo_in_magazine = self.ammo
-                    self.ammo = 0
-        else:
-            if event.button is pyasge.MOUSE.MOUSE_BTN2 and event.action is pyasge.MOUSE.BUTTON_PRESSED:
-                # Reload early
-                self.ammo += self.ammo_in_magazine
-                if self.ammo >= 20:
-                    self.ammo -= 21
-                    self.ammo_in_magazine = 21
-                else:
-                    self.ammo_in_magazine = self.ammo
-                    self.ammo = 0
-        if event.button is pyasge.MOUSE.MOUSE_BTN1 and event.action is pyasge.MOUSE.BUTTON_PRESSED and self.ammo_in_magazine > 0:
+        if event.button is pyasge.MOUSE.MOUSE_BTN1 and event.action is pyasge.MOUSE.BUTTON_PRESSED:
             self.firing = True
         if event.button is pyasge.MOUSE.MOUSE_BTN1 and event.action is pyasge.MOUSE.BUTTON_RELEASED:
             self.firing = False
@@ -278,13 +256,11 @@ class Heister:
                                 self.pos_y, cursor.x, cursor.y, self.active_torso_frame.width)
                 bullet.shot_by = "heister"
                 bullets.append(bullet)
-                self.ammo_in_magazine = max(self.ammo_in_magazine - 1, 0)
             self.fire_delay += self.fire_rate * game_time.fixed_timestep
             print(self.fire_delay)
             if self.fire_delay > 0.5:
                 self.fire_delay = 0
-            if self.ammo_in_magazine < 1:
-                self.firing = False
+
 
     @property
     def midpoint(self) -> pyasge.Point2D:

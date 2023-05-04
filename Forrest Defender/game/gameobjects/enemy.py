@@ -4,6 +4,7 @@ import random
 import pyasge
 from game.spritesheet import Spritesheet
 from game.pathfinding import pathfind
+from game.gameobjects.heister import Heister
 
 
 class Enemy_Ranged:
@@ -213,7 +214,7 @@ class Enemy_Ranged:
         self.active_torso_frame.z_order = 5
         self.active_dead_frame.z_order = 5
 
-    def update(self, player_x, player_y, data, game_time: pyasge.GameTime, bullets, Bullets, audio_system, sounds):
+    def update(self, player_x, player_y, data, game_time: pyasge.GameTime, bullets, Bullets, audio_system, sounds, health):
         self.sprite.scale = 3
         self.sprite.x = self.pos_x - self.active_torso_frame.width / 2
         self.sprite.y = self.pos_y
@@ -225,7 +226,7 @@ class Enemy_Ranged:
             self.alive = False
             self.update_animation()
 
-
+        return health
 
 
 
@@ -249,6 +250,19 @@ class Enemy_Melee:
             self.alive_spritesheet.parseSprite('orcWalk_05.png'),
             self.alive_spritesheet.parseSprite('orcWalk_06.png')
         ]
+
+        self.torso_attack_frames = [
+            self.alive_spritesheet.parseSprite('orcAttack_00.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_01.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_02.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_03.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_04.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_05.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_06.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_07.png'),
+            self.alive_spritesheet.parseSprite('orcAttack_08.png')
+        ]
+
 
         self.leg_frames = [
             self.alive_spritesheet.parseSprite('orcLegs_00.png'),
@@ -309,6 +323,8 @@ class Enemy_Melee:
         self.dead_animation_frame = 0
         self.dead_animation_frames = self.dead_frames
 
+        self.torso_attack_frame = 0
+
         self.animation_speed = 0.2  # adjust as needed
         self.moving = False
 
@@ -327,6 +343,10 @@ class Enemy_Melee:
         self.state = 0
 
         self.clock = 0
+
+        self.attack = False
+        self.attack_once = False
+
 
     def update_position(self, player_x, player_y, data, game_time: pyasge.GameTime,bullets, Bullets, audio_system, sounds):
         if self.state == 0 and player_y > self.pos_y - 400 and player_y < self.pos_y + 400 and player_x > self.pos_x - 400 and player_x < self.pos_x + 400:
@@ -347,15 +367,15 @@ class Enemy_Melee:
             dx = player_tile_x
             dy = player_tile_y
             self.angle = math.atan2(dy, dx)
-            r_delay = random.randint (1,4)
+            r_delay = random.randint(1,4)
+
+            if not self.attack and not self.attack_once:
+                self.attack = True
+                self.attack_once = True
             if self.clock > r_delay:
                 self.state = 0
                 self.clock = 0
-                bullet = Bullets(self.sprite.midpoint, self.angle, self.pos_x,
-                                 self.pos_y, player_x, player_y, self.active_torso_frame.width)
-                bullet.shot_by = "enemy"
-                channel = audio_system.play_sound(sounds["shoot"])
-                bullets.append(bullet)
+                self.attack_once = False
             else:
                 self.clock += 1 * game_time.fixed_timestep
 
@@ -392,8 +412,21 @@ class Enemy_Melee:
 
 
     def update_animation(self):
-        if self.moving:
+        self.active_torso_frame.z_order = 10
+        self.active_leg_frame.z_order = 10
 
+        if self.attack:
+            self.torso_animation_frames = self.torso_attack_frames
+            self.torso_animation_frame += self.animation_speed
+            if self.torso_animation_frame >= len(self.torso_animation_frames):
+                self.torso_animation_frames = self.torso_walk_frames
+                self.torso_animation_frame = 0
+                self.attack = False
+            self.active_torso_frame = self.torso_animation_frames[int(self.torso_animation_frame)]
+
+
+
+        elif self.moving:
             self.torso_animation_frame += self.animation_speed
             self.leg_animation_frame += self.animation_speed
 
@@ -412,11 +445,7 @@ class Enemy_Melee:
             self.active_leg_frame = self.leg_animation_frames[int(self.torso_animation_frame)]
             self.active_torso_frame = self.torso_animation_frames[int(self.torso_animation_frame)]
 
-        if self.alive == False:
-            self.dead_animation_frame += self.animation_speed
-            if self.dead_animation_frame >= len(self.dead_animation_frames):
-                self.dead_animation_frame = 15
-            self.active_dead_frame = self.dead_animation_frames[int(self.dead_animation_frame)]
+
 
         torso_half_width = self.active_torso_frame.width / 2
         torso_half_height = self.active_torso_frame.height / 2
@@ -434,10 +463,12 @@ class Enemy_Melee:
         self.active_leg_frame.y = self.pos_y - leg_half_height
         self.active_leg_frame.rotation = self.angle
 
-        self.active_torso_frame.z_order = 5
-        self.active_dead_frame.z_order = 5
+        self.sprite.scale = 3
+        self.sprite.x = self.pos_x - torso_half_width
+        self.sprite.y = self.pos_y
+        self.sprite.rotation = self.angle
 
-    def update(self, player_x, player_y, data, game_time: pyasge.GameTime, bullets, Bullets, audio_system, sounds):
+    def update(self, player_x, player_y, data, game_time: pyasge.GameTime, bullets, Bullets, audio_system, sounds, health):
         self.sprite.scale = 3
         self.sprite.x = self.pos_x - self.active_torso_frame.width / 2
         self.sprite.y = self.pos_y
@@ -447,7 +478,9 @@ class Enemy_Melee:
             self.update_animation()
         if self.health <= 0 and self.alive:
             self.alive = False
-
+        if self.attack and self.pos_x - 20 < player_x + 20 and self.pos_x + 40 > player_x and self.pos_y - 20 < player_y + 20 and self.pos_y + 40 > player_y:
+            health -= 1
+        return health
 
 
     def render(self, renderer: pyasge.Renderer):

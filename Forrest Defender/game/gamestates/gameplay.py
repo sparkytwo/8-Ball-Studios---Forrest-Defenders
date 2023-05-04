@@ -170,9 +170,15 @@ class GamePlay(GameState):
         self.update_bullets(game_time)
         self.heister.update(self.key_states, self.bullets, Bullet, self.data.cursor, self.data.game_map, game_time,
                             self.data.audio_system, self.sounds)
-
+        c_health = self.heister.health
         for enemy in self.enemies:
-            enemy.update(self.heister.pos_x, self.heister.pos_y, self.data, game_time, self.bullets, Bullet, self.data.audio_system, self.sounds)
+            if self.heister.i_clock > 3:
+                self.heister.health = enemy.update(self.heister.pos_x, self.heister.pos_y, self.data, game_time, self.bullets, Bullet, self.data.audio_system, self.sounds, self.heister.health)
+                if self.heister.health < c_health:
+                    self.heister.i_clock = 0
+            else:
+                enemy.update(self.heister.pos_x, self.heister.pos_y, self.data, game_time, self.bullets, Bullet,
+                             self.data.audio_system, self.sounds, self.heister.health)
 
         self.render_ui()
 
@@ -197,7 +203,7 @@ class GamePlay(GameState):
                     bullet_pos = (bullet.sprite.x, bullet.sprite.y)
                     enemy_pos = (enemy.pos_x, enemy.pos_y)
                     distance = math.sqrt((bullet_pos[0] - enemy_pos[0]) ** 2 + (bullet_pos[1] - enemy_pos[1]) ** 2)
-                    if distance <= (bullet.width * 0.015) + (
+                    if distance <= (bullet.width ) + (
                     enemy.active_torso_frame.width) and bullet.shot_by == "heister":
                         # remove bullet and enemy
                         bullets_to_remove.append(bullet)
@@ -286,6 +292,5 @@ class GamePlay(GameState):
         self.ui_active_health.x = 1550
         self.ui_active_health.y = 40
 
-        self.data.renderer.render(self.ui_active_weapon)
-        self.data.renderer.render(self.ui_ammo_count)
+
         self.data.renderer.render(self.ui_active_health)
