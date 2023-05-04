@@ -167,13 +167,21 @@ class GamePlay(GameState):
                 self.enemies[i].pos_y = y * 2
         cdx = 1000
         cdy = 1000
+        edx = 0
+        edy = 0
         dx = 0
         dy = 0
         for i in range(0, len(self.enemies)):
             if self.enemies[i].pos_x > self.heister.pos_x - 350 and self.enemies[i].pos_x < self.heister.pos_x + 350 and self.enemies[i].pos_y > self.heister.pos_y - 350 and self.enemies[i].pos_y < self.heister.pos_y + 350:
                 print("found")
-                dx = self.enemies[i].pos_x
-                dy = self.enemies[i].pos_y
+                if self.enemies[i].alive:
+                    self.heister.found = True
+                    dx = self.enemies[i].pos_x
+                    dy = self.enemies[i].pos_y
+                    edx = self.enemies[i].pos_x
+                    edy = self.enemies[i].pos_y
+                else:
+                    self.heister.found = False
             if dx < cdx:
                 cdx = dx
             if dy < cdy:
@@ -181,11 +189,13 @@ class GamePlay(GameState):
         dx = dx - self.heister.pos_x
         dy = dy - self.heister.pos_y
         self.heister.angle = math.atan2(dy, dx)
+        self.heister.target_x = edx
+        self.heister.target_y = edy
 
 
         self.update_camera()
         self.update_bullets(game_time)
-        self.heister.update(self.key_states, self.bullets, Bullet, self.data.cursor, self.data.game_map, game_time,
+        self.heister.update(self.key_states, self.bullets, Bullet, self.data.game_map, game_time,
                             self.data.audio_system, self.sounds)
         c_health = self.heister.health
         for enemy in self.enemies:
