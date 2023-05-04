@@ -14,6 +14,7 @@ class MyASGEGame(pyasge.ASGEGame):
             settings (pyasge.GameSettings): The game settings
         """
         pyasge.ASGEGame.__init__(self, settings)
+        self.renderer.setBaseResolution(580, 1080, pyasge.ResolutionPolicy.MAINTAIN)
         self.renderer.setClearColour(pyasge.COLOURS.BLACK)
 
         # create game data object for shared data
@@ -23,7 +24,7 @@ class MyASGEGame(pyasge.ASGEGame):
         self.data.game_map = GameMap(self.renderer, "./data/map/map.tmx")
         self.data.inputs = self.inputs
         self.data.renderer = self.renderer
-        self.data.game_resolution = [1920, 1080]
+        self.data.game_resolution = [580, 1080]
 
 
         # register the key and mouse click handlers for this class

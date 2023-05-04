@@ -13,7 +13,7 @@ from game.crimewave import MyASGEGame
 def main() -> None:
     # set up the game settings first
     settings = pyasge.GameSettings()
-    settings.window_width = 1920
+    settings.window_width = 580
     settings.window_height = 1080
     settings.fixed_ts = 50
     settings.fps_limit = 60

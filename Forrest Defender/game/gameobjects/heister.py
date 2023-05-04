@@ -125,13 +125,16 @@ class Heister:
         tile_y = int((self.pos_y + self.active_torso_frame.height) / tile_size[1])
 
         if pyasge.KEYS.KEY_A in key_states:
+            self.angle = 179
             if game_map.costs[tile_y][tile_x - 1] == 0:
                 self.dx -= 10
                 self.moving = True
+
             if game_map.costs[tile_y][tile_x - 1] == 2:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_D in key_states:
+            self.angle = 0
             if game_map.costs[tile_y][tile_x + 1] == 0:
                 self.dx += 10
                 self.moving = True
@@ -139,6 +142,7 @@ class Heister:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_W in key_states:
+            self.angle = 11
             if game_map.costs[tile_y - 1][tile_x] == 0:
                 self.dy -= 10
                 self.moving = True
@@ -146,6 +150,7 @@ class Heister:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_S in key_states:
+            self.angle = 190
             if game_map.costs[tile_y + 1][tile_x] == 0:
                 self.dy += 10
                 self.moving = True
@@ -160,12 +165,7 @@ class Heister:
     def update_cursor(self, cursor: pyasge.Sprite):
         cursor.x += self.dx
         cursor.y += self.dy
-        # calculate the angle to the cursor
-        cursor_x = cursor.x + cursor.width / 2
-        cursor_y = cursor.y + cursor.height / 2
-        delta_x = cursor_x - self.pos_x
-        delta_y = cursor_y - self.pos_y
-        self.angle = math.atan2(delta_y, delta_x)
+
 
     def update_animation(self):
         self.active_torso_frame.z_order = 10
@@ -180,7 +180,8 @@ class Heister:
             self.active_torso_frame = self.torso_animation_frames[int(self.torso_animation_frame)]
 
 
-        elif self.moving:
+        if self.moving:
+            print("pain")
             self.torso_animation_frame += self.animation_speed
             self.leg_animation_frame += self.animation_speed
 
