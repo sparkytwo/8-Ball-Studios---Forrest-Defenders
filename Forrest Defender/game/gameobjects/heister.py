@@ -117,6 +117,10 @@ class Heister:
         self.win = False
         self.loose = False
 
+        self.target_x = 0
+        self.target_y = 0
+        self.found = False
+
     def update_position(self, key_states: set, game_map: GameMap):
         self.dx, self.dy = 0, 0
 
@@ -125,35 +129,41 @@ class Heister:
         tile_y = int((self.pos_y + self.active_torso_frame.height) / tile_size[1])
 
         if pyasge.KEYS.KEY_A in key_states:
-            self.angle = 179
+
             if game_map.costs[tile_y][tile_x - 1] == 0:
                 self.dx -= 10
                 self.moving = True
+            if self.found == False:
+                self.angle = 179
 
             if game_map.costs[tile_y][tile_x - 1] == 2:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_D in key_states:
-            self.angle = 0
             if game_map.costs[tile_y][tile_x + 1] == 0:
                 self.dx += 10
                 self.moving = True
+            if self.found == False:
+                self.angle = 0
             if game_map.costs[tile_y][tile_x + 1] == 2:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_W in key_states:
-            self.angle = 11
             if game_map.costs[tile_y - 1][tile_x] == 0:
                 self.dy -= 10
                 self.moving = True
+            if self.found == False:
+                self.angle = 11
             if game_map.costs[tile_y - 1][tile_x] == 2:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_S in key_states:
-            self.angle = 190
+
             if game_map.costs[tile_y + 1][tile_x] == 0:
                 self.dy += 10
                 self.moving = True
+            if self.found == False:
+                self.angle = 190
             if game_map.costs[tile_y + 1][tile_x] == 2:
                 self.win = True
                 print("pain")
@@ -233,7 +243,7 @@ class Heister:
         if event.button is pyasge.MOUSE.MOUSE_BTN1 and event.action is pyasge.MOUSE.BUTTON_RELEASED:
             self.firing = False
 
-    def update(self, key_states: set, bullets, Bullet, cursor: pyasge.Sprite, game_map: GameMap,
+    def update(self, key_states: set, bullets, Bullet, game_map: GameMap,
                game_time: pyasge.GameTime, audio_system, sounds):
 
         self.i_clock += 1 * game_time.fixed_timestep
@@ -246,7 +256,6 @@ class Heister:
 
 
         self.update_position(key_states, game_map)
-        self.update_cursor(cursor)
         self.update_animation()
         if self.firing == True:
             if self.fire_delay == 0:
@@ -254,7 +263,7 @@ class Heister:
                 channel = audio_system.play_sound(sounds["shoot"])
 
                 bullet = Bullet(self.sprite.midpoint, self.angle, self.pos_x,
-                                self.pos_y, cursor.x, cursor.y, self.active_torso_frame.width)
+                                self.pos_y,self.target_x, self.target_y, self.active_torso_frame.width)
                 bullet.shot_by = "heister"
                 bullets.append(bullet)
             self.fire_delay += self.fire_rate * game_time.fixed_timestep
