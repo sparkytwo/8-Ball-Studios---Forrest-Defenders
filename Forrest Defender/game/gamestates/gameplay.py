@@ -165,6 +165,23 @@ class GamePlay(GameState):
                 x, y = rands.pop()
                 self.enemies[i].pos_x = x * 2
                 self.enemies[i].pos_y = y * 2
+        cdx = 1000
+        cdy = 1000
+        dx = 0
+        dy = 0
+        for i in range(0, len(self.enemies)):
+            if self.enemies[i].pos_x > self.heister.pos_x - 350 and self.enemies[i].pos_x < self.heister.pos_x + 350 and self.enemies[i].pos_y > self.heister.pos_y - 350 and self.enemies[i].pos_y < self.heister.pos_y + 350:
+                print("found")
+                dx = self.enemies[i].pos_x
+                dy = self.enemies[i].pos_y
+            if dx < cdx:
+                cdx = dx
+            if dy < cdy:
+                cdy = dy
+        dx = dx - self.heister.pos_x
+        dy = dy - self.heister.pos_y
+        self.heister.angle = math.atan2(dy, dx)
+
 
         self.update_camera()
         self.update_bullets(game_time)
