@@ -4,120 +4,120 @@
 			"frame": {
 				"x": 1,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		},
 		"Health1.png": {
 			"frame": {
-				"x": 115,
+				"x": 1323,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		},
 		"Health2.png": {
 			"frame": {
-				"x": 229,
+				"x": 2645,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		},
 		"Health3.png": {
 			"frame": {
-				"x": 343,
+				"x": 3967,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		},
 		"Health4.png": {
 			"frame": {
-				"x": 457,
+				"x": 5289,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		},
 		"Health5.png": {
 			"frame": {
-				"x": 571,
+				"x": 6611,
 				"y": 1,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			},
 			"sourceSize": {
-				"w": 112,
-				"h": 50
+				"w": 1320,
+				"h": 229
 			}
 		}
 	},
@@ -127,8 +127,8 @@
 		"image": "spritesheet.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 684,
-			"h": 52
+			"w": 7932,
+			"h": 231
 		},
 		"scale": "1"
 	}

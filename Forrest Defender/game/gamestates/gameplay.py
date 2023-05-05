@@ -58,7 +58,7 @@ class GamePlay(GameState):
         self.camera.zoom = 1.2
         self.camera.lookAt(self.heister.sprite.midpoint)
 
-        self.sounds = {"shoot": self.data.audio_system.create_sound("./data/audio/gunshot.wav"),
+        self.sounds = {"shoot": self.data.audio_system.create_sound("./data/audio/gunshot.mp3"),
                        "shell": self.data.audio_system.create_sound("./data/audio/shells.mp3")}
 
     def init_cursor(self):
@@ -103,9 +103,11 @@ class GamePlay(GameState):
             self.ui_health_spritesheet.parseSprite('Health5.png')
         ]
         self.ui_active_health = self.ui_health_frames[5]
-        self.ui_active_health.scale = 3
-        self.ui_active_health.x = 1550
-        self.ui_active_health.y = 40
+        self.ui_active_health.scale = 0.3
+        self.ui_active_health.x = 1600
+        self.ui_active_health.y = 50
+
+        self.ui_active_health.z_order = 100
 
         self.ui_joystick_spritesheet = Spritesheet("/data/sprites/UI/joystick_spritesheet.png")
         self.ui_joystick_frames = [
@@ -129,6 +131,9 @@ class GamePlay(GameState):
         self.ui_active_shoot.scale = 1.5
         self.ui_active_shoot.x = 380
         self.ui_active_shoot.y = 850
+
+
+
 
 
     def click_handler(self, event: pyasge.ClickEvent) -> None:
@@ -285,9 +290,10 @@ class GamePlay(GameState):
 
 
         self.ui_active_health = self.ui_health_frames[self.heister.health]
-        self.ui_active_health.scale = 2
-        self.ui_active_health.x = 0
-        self.ui_active_health.y = 0
+        self.ui_active_health.scale = 0.3
+        self.ui_active_health.x = 40
+        self.ui_active_health.y = 50
+        self.ui_active_health.z_order = 100
 
         if not self.heister.left and not self.heister.right and not self.heister.up and not self.heister.down:
             self.ui_active_joystick = self.ui_joystick_frames[0]
@@ -333,3 +339,4 @@ class GamePlay(GameState):
         self.data.renderer.render(self.ui_active_health)
         self.data.renderer.render(self.ui_active_joystick)
         self.data.renderer.render(self.ui_active_shoot)
+
