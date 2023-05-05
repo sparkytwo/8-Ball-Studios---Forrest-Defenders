@@ -54,6 +54,7 @@ class GamePlay(GameState):
         ]
 
         self.camera = pyasge.Camera(map_mid, self.data.game_resolution[0], self.data.game_resolution[1])
+        self.camera.zoom = 1.3
         self.camera.zoom = 1.2
         self.camera.lookAt(self.heister.sprite.midpoint)
 
@@ -92,43 +93,6 @@ class GamePlay(GameState):
         self.data.cursor.y = cursor_y
 
     def init_ui(self):
-        self.ui_m16_spritesheet = Spritesheet("/data/sprites/UI/M16/ui_m16.png")
-        self.ui_m16_frames = [
-            self.ui_m16_spritesheet.parseSprite('M16_00.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_01.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_02.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_03.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_04.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_05.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_06.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_07.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_08.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_09.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_10.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_11.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_12.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_13.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_14.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_15.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_16.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_17.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_18.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_19.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_20.png'),
-            self.ui_m16_spritesheet.parseSprite('M16_21.png')
-        ]
-        self.ui_active_weapon = self.ui_m16_frames[21]
-        self.ui_active_weapon.scale = 5
-        self.ui_active_weapon.x = 20
-        self.ui_active_weapon.y = 10
-        self.total_ammo = self.heister.ammo + self.heister.ammo_in_magazine
-        self.ui_ammo_count = pyasge.Text(self.data.renderer.getDefaultFont(), str(self.total_ammo), 100, 100)
-        self.ui_ammo_count.z_order = 100
-        self.ui_ammo_count.x = 10
-        self.ui_ammo_count.y = 155
-        self.ui_ammo_count.colour = pyasge.COLOURS.WHITE
-        self.ui_ammo_count.scale = 1
-
         self.ui_health_spritesheet = Spritesheet("/data/sprites/UI/health/health_bar.png")
         self.ui_health_frames = [
             self.ui_health_spritesheet.parseSprite('Health0.png'),
@@ -142,6 +106,30 @@ class GamePlay(GameState):
         self.ui_active_health.scale = 3
         self.ui_active_health.x = 1550
         self.ui_active_health.y = 40
+
+        self.ui_joystick_spritesheet = Spritesheet("/data/sprites/UI/joystick_spritesheet.png")
+        self.ui_joystick_frames = [
+            self.ui_joystick_spritesheet.parseSprite('joystick_center.png'),
+            self.ui_joystick_spritesheet.parseSprite('joystick_left.png'),
+            self.ui_joystick_spritesheet.parseSprite('joystick_right.png'),
+            self.ui_joystick_spritesheet.parseSprite('joystick_up.png'),
+            self.ui_joystick_spritesheet.parseSprite('joystick_down.png')
+        ]
+        self.ui_active_joystick = self.ui_joystick_frames[0]
+        self.ui_active_joystick.scale = 1.5
+        self.ui_active_joystick.x = 65
+        self.ui_active_joystick.y = 800
+
+        self.ui_shoot_spritesheet = Spritesheet("/data/sprites/UI/shoot_spritesheet.png")
+        self.ui_shoot_frames = [
+            self.ui_shoot_spritesheet.parseSprite('shoot_up.png'),
+            self.ui_shoot_spritesheet.parseSprite('shoot_down.png')
+        ]
+        self.ui_active_shoot = self.ui_shoot_frames[0]
+        self.ui_active_shoot.scale = 1.5
+        self.ui_active_shoot.x = 380
+        self.ui_active_shoot.y = 850
+
 
     def click_handler(self, event: pyasge.ClickEvent) -> None:
         self.heister.click_handler(event)
@@ -295,27 +283,53 @@ class GamePlay(GameState):
         vp = self.data.renderer.resolution_info.viewport
         self.data.renderer.setProjectionMatrix(0, 0, vp.w, vp.h)
 
-        self.ui_active_weapon = self.ui_m16_frames[self.heister.ammo_in_magazine]
-        self.ui_active_weapon.scale = 5
-        self.ui_active_weapon.x = 20
-        self.ui_active_weapon.y = 10
-        self.total_ammo = self.heister.ammo + self.heister.ammo_in_magazine
-        self.ui_ammo_count = pyasge.Text(self.data.renderer.getDefaultFont(), str(self.total_ammo).zfill(3), 100, 100)
-        self.ui_ammo_count.z_order = 100
-        self.ui_ammo_count.x = 10
-        self.ui_ammo_count.y = 155
-        if self.total_ammo <= 20:
-            self.ui_ammo_count.colour = pyasge.COLOURS.RED
-        elif self.total_ammo <= 40 and self.total_ammo > 20:
-            self.ui_ammo_count.colour = pyasge.COLOURS.YELLOW
-        else:
-            self.ui_ammo_count.colour = pyasge.COLOURS.WHITE
-        self.ui_ammo_count.scale = 1
 
         self.ui_active_health = self.ui_health_frames[self.heister.health]
-        self.ui_active_health.scale = 3
-        self.ui_active_health.x = 1550
-        self.ui_active_health.y = 40
+        self.ui_active_health.scale = 2
+        self.ui_active_health.x = 0
+        self.ui_active_health.y = 0
+
+        if not self.heister.left and not self.heister.right and not self.heister.up and not self.heister.down:
+            self.ui_active_joystick = self.ui_joystick_frames[0]
+            self.ui_active_joystick.scale = 1.5
+            self.ui_active_joystick.x = 65
+            self.ui_active_joystick.y = 800
+        if self.heister.left and not self.heister.right and not self.heister.up and not self.heister.down:
+            self.ui_active_joystick = self.ui_joystick_frames[1]
+            self.ui_active_joystick.scale = 1.5
+            self.ui_active_joystick.x = 65
+            self.ui_active_joystick.y = 800
+        if not self.heister.left and self.heister.right and not self.heister.up and not self.heister.down:
+            self.ui_active_joystick = self.ui_joystick_frames[2]
+            self.ui_active_joystick.scale = 1.5
+            self.ui_active_joystick.x = 65
+            self.ui_active_joystick.y = 800
+        if not self.heister.left and not self.heister.right and  self.heister.up and not self.heister.down:
+            self.ui_active_joystick = self.ui_joystick_frames[3]
+            self.ui_active_joystick.scale = 1.5
+            self.ui_active_joystick.x = 65
+            self.ui_active_joystick.y = 800
+        if not self.heister.left and not self.heister.right and not self.heister.up and  self.heister.down:
+            self.ui_active_joystick = self.ui_joystick_frames[4]
+            self.ui_active_joystick.scale = 1.5
+            self.ui_active_joystick.x = 65
+            self.ui_active_joystick.y = 800
+
+        if self.heister.firing == False:
+            self.ui_active_shoot = self.ui_shoot_frames[0]
+
+            self.ui_active_shoot.scale = 1.5
+            self.ui_active_shoot.x = 380
+            self.ui_active_shoot.y = 850
+
+        if self.heister.firing == True:
+            self.ui_active_shoot = self.ui_shoot_frames[1]
+
+            self.ui_active_shoot.scale = 1.5
+            self.ui_active_shoot.x = 380
+            self.ui_active_shoot.y = 850
 
 
         self.data.renderer.render(self.ui_active_health)
+        self.data.renderer.render(self.ui_active_joystick)
+        self.data.renderer.render(self.ui_active_shoot)

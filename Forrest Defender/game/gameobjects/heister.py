@@ -121,6 +121,11 @@ class Heister:
         self.target_y = 0
         self.found = False
 
+        self.left = False
+        self.right = False
+        self.up = False
+        self.down = False
+
     def update_position(self, key_states: set, game_map: GameMap):
         self.dx, self.dy = 0, 0
 
@@ -129,7 +134,10 @@ class Heister:
         tile_y = int((self.pos_y + self.active_torso_frame.height) / tile_size[1])
 
         if pyasge.KEYS.KEY_A in key_states:
-
+            self.left = True
+            self.right = False
+            self.up = False
+            self.down = False
             if game_map.costs[tile_y][tile_x - 1] == 0:
                 self.dx -= 7
                 self.moving = True
@@ -140,6 +148,10 @@ class Heister:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_D in key_states:
+            self.left = False
+            self.right = True
+            self.up = False
+            self.down = False
             if game_map.costs[tile_y][tile_x + 1] == 0:
                 self.dx += 7
                 self.moving = True
@@ -149,6 +161,10 @@ class Heister:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_W in key_states:
+            self.left = False
+            self.right = False
+            self.up = True
+            self.down = False
             if game_map.costs[tile_y - 1][tile_x] == 0:
                 self.dy -= 7
                 self.moving = True
@@ -158,7 +174,10 @@ class Heister:
                 self.win = True
                 print("pain")
         if pyasge.KEYS.KEY_S in key_states:
-
+            self.left = False
+            self.right = False
+            self.up = False
+            self.down = True
             if game_map.costs[tile_y + 1][tile_x] == 0:
                 self.dy += 7
                 self.moving = True
@@ -169,6 +188,11 @@ class Heister:
                 print("pain")
         if self.dx == 0 and self.dy == 0:
             self.moving = False
+            self.left = False
+            self.right = False
+            self.up = False
+            self.down = False
+
         self.pos_x += self.dx
         self.pos_y += self.dy
 
