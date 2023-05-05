@@ -131,7 +131,7 @@ class Heister:
         if pyasge.KEYS.KEY_A in key_states:
 
             if game_map.costs[tile_y][tile_x - 1] == 0:
-                self.dx -= 10
+                self.dx -= 7
                 self.moving = True
             if self.found == False:
                 self.angle = 179
@@ -141,7 +141,7 @@ class Heister:
                 print("pain")
         if pyasge.KEYS.KEY_D in key_states:
             if game_map.costs[tile_y][tile_x + 1] == 0:
-                self.dx += 10
+                self.dx += 7
                 self.moving = True
             if self.found == False:
                 self.angle = 0
@@ -150,7 +150,7 @@ class Heister:
                 print("pain")
         if pyasge.KEYS.KEY_W in key_states:
             if game_map.costs[tile_y - 1][tile_x] == 0:
-                self.dy -= 10
+                self.dy -= 7
                 self.moving = True
             if self.found == False:
                 self.angle = 11
@@ -160,7 +160,7 @@ class Heister:
         if pyasge.KEYS.KEY_S in key_states:
 
             if game_map.costs[tile_y + 1][tile_x] == 0:
-                self.dy += 10
+                self.dy += 7
                 self.moving = True
             if self.found == False:
                 self.angle = 190

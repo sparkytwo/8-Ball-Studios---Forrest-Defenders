@@ -90,7 +90,7 @@ class Enemy_Ranged:
         self.sprite.loadTexture("/data/sprites/heisters/chief/debug.png")
 
         self.destination = []
-        self.speed = 10
+        self.speed = 3
 
         self.state = 0
 
@@ -338,7 +338,7 @@ class Enemy_Melee:
         self.sprite.loadTexture("/data/sprites/heisters/chief/debug.png")
 
         self.destination = []
-        self.speed = 10
+        self.speed = 5
 
         self.state = 0
 
@@ -367,7 +367,7 @@ class Enemy_Melee:
             dx = player_tile_x
             dy = player_tile_y
             self.angle = math.atan2(dy, dx)
-            r_delay = random.randint(1,4)
+            r_delay = random.randint(3,6)
 
             if not self.attack and not self.attack_once:
                 self.attack = True
