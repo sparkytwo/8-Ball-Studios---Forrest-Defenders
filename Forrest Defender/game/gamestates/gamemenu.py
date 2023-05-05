@@ -53,10 +53,8 @@ class GameMenu(GameState):
 
     def update(self, game_time: pyasge.GameTime) -> GameStateID:
 
-        if self.transition:
-            return GameStateID.GAMEPLAY
+        return GameStateID.GAMEPLAY
 
-        return GameStateID.START_MENU
 
     def render(self, game_time: pyasge.GameTime) -> None:
         self.data.renderer.render(self.background)

@@ -35,6 +35,8 @@ class Bullet:
         # move the bullet by the direction vector multiplied by speed
         self.sprite.x += self.direction_x * self.speed * game_time.frame_time
         self.sprite.y += self.direction_y * self.speed * game_time.frame_time
+        if self.shot_by == "enemy":
+            self.sprite.loadTexture("data/sprites/bullet/blueball.png")
 
     def render(self, renderer: pyasge.Renderer) -> None:
         renderer.render(self.sprite)

@@ -80,7 +80,7 @@ class MyASGEGame(pyasge.ASGEGame):
 
     def render(self, game_time: pyasge.GameTime) -> None:
         self.current_state.render(game_time)
-        self.renderer.render(self.data.cursor)
+        #self.renderer.render(self.data.cursor)
 
 def main():
     settings = pyasge.GameSettings()

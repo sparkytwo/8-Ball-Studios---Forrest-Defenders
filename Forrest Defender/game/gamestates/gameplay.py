@@ -33,7 +33,7 @@ class GamePlay(GameState):
         self.bullets = []
         self.enemies = []
 
-        self.enemy_count = 17
+        self.enemy_count = 9
         self.spawn_points = len(self.data.game_map.spawns)
         rands = random.sample(self.data.game_map.spawns, self.spawn_points)
         for i in range(0, self.enemy_count):
@@ -54,7 +54,7 @@ class GamePlay(GameState):
         ]
 
         self.camera = pyasge.Camera(map_mid, self.data.game_resolution[0], self.data.game_resolution[1])
-        self.camera.zoom = 1.5
+        self.camera.zoom = 1.2
         self.camera.lookAt(self.heister.sprite.midpoint)
 
         self.sounds = {"shoot": self.data.audio_system.create_sound("./data/audio/gunshot.wav"),
@@ -209,10 +209,8 @@ class GamePlay(GameState):
 
         self.render_ui()
 
-        if self.heister.health < 1 or self.heister.win == True:
-            self.transition = True
-        if self.transition == True and not self.heister.win:
-            return GameStateID.GAME_OVER
+        if len(self.enemies) < 1:
+            quit()
         if self.transition == True and self.heister.win:
             return GameStateID.GAME_WIN
 
@@ -291,7 +289,7 @@ class GamePlay(GameState):
         for bullet in self.bullets:
             bullet.render(self.data.renderer)
 
-        self.data.renderer.render(self.data.cursor)
+        #self.data.renderer.render(self.data.cursor)
 
     def render_ui(self) -> None:
         vp = self.data.renderer.resolution_info.viewport
